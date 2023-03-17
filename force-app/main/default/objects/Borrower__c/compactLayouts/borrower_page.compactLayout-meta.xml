@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>borrower_page</fullName>
+    <fields>Name</fields>
+    <fields>Book__c</fields>
+    <fields>Borrowed_By__c</fields>
+    <fields>CreatedById</fields>
+    <fields>Date_of_Issue_B__c</fields>
+    <fields>Date_of_Return_B__c</fields>
+    <fields>Bill_Ammount_B__c</fields>
+    <label>borrower page</label>
+</CompactLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bill_Ammount_B__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( AND( ISNULL( Days_Remaining_to_Return_Book__c ), Date_of_Return_B__c  &gt;  Date_To_Be_Returned__c )  , MCEILING((Date_of_Return_B__c  - Date_To_Be_Returned__c))*2 , 
+ IF((TODAY()-  Date_To_Be_Returned__c )&gt;0, MCEILING((TODAY()-  Date_To_Be_Returned__c ))*2, 0))</formula>
+    <label>Bill Ammount B</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>
