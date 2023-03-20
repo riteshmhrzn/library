@@ -1,6 +1,7 @@
 <template>
+  <div class="slds-p-bottom_medium">
   <lightning-button label="Borrower List" variant="brand" onclick={navigateToBorrowerPage}
-    class="slds-m-left_x-small"></lightning-button>
+    class="slds-m-left_x-small"></lightning-button></div>
   <lightning-card title="Books" class="book-libary">
     <div class="slds-card__body slds-card__body_inner">
       <!-- Start book list -->
@@ -26,15 +27,20 @@
                           <img src={book.Image_URL__c} alt="book profile" class="book" width="100" height="100" />
                         </div>
                         <div class="slds-media__body">
-                          <p class="slds-var-m-bottom_xx-small">Book Id:{book.Book_Id__c}</p>
-                          <p class="slds-var-m-bottom_xx-small">Book Name:{book.Name}</p>
-                          <p class="slds-var-m-bottom_xx-small">Author:{book.Author__c}</p>
+                          <p class="slds-var-m-bottom_xx-small"><b>Book Id: </b>{book.Book_Id__c}</p>
+                          <p class="slds-var-m-bottom_xx-small"><b>Book Name:</b> {book.Name}</p>
+                          <p class="slds-var-m-bottom_xx-small"><b>Author:</b> {book.Author__c}</p>
+                          <p class="slds-var-m-bottom_xx-small"><b>Availability:</b> {book.Avalibility__c}</p>
                           
                           <!-- Code to view book description on button click-->
+                          <div class="slds-p-bottom_small">
                           <lightning-button label="Description" value={book.Id} onclick={viewbook}
-                            class="slds-m-left_x-small"></lightning-button>
-                          <lightning-button label="Borrow Book" title="Pop Up Form" onclick={customShowModalPopup}
+                            class="slds-m-left_x-small"></lightning-button></div>
+                            
+                          <lightning-button variant="success" label="Borrow Book" title="Pop Up Form" onclick={customShowModalPopup}
                             value={book.Id} class="slds-m-left_x-small"></lightning-button>
+                         
+                          
 
                           <!--popup modal start -->
                           <template if:true={customFormModal}>
