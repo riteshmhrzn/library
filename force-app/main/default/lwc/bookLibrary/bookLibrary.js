@@ -4,6 +4,7 @@ import searchBooks from '@salesforce/apex/BookController.searchBooks';
 import getBooksById from '@salesforce/apex/BookController.getBooksById';
 import {ShowToastEvent} from 'lightning/platformShowToastEvent';
 import { NavigationMixin } from 'lightning/navigation';
+
 export default class BookLibrary extends NavigationMixin(LightningElement) {
     @api recordId;
     // Navigation to Custom Tab

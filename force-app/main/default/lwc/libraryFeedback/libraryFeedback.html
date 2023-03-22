@@ -1,0 +1,31 @@
+<template>
+  <template if:true={feedbackform}>
+    <lightning-card title="Library Feedback">
+      <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container" style="-webkit-text-fill-color:black">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={handleCancel}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" 
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <div class="slds-modal__header">
+                      <div class="slds-text-heading_small">Feedback/ Request Book Form</div></div>
+        <div class="slds-p-around_medium">
+
+          <lightning-record-form object-api-name={objectApiName} fields={fields} onsuccess={handleSuccess}
+                        oncancel={handleCancel} >
+                    </lightning-record-form>
+        </div>
+        </div>
+        </section>
+      </lightning-card>
+      <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+  
+  <lightning-layout-item size="4" flexibility="auto" padding="horizontal-small" class="slds-float_left">
+      <lightning-button name="Feedback" variant="brand" label="Feedback" onclick={handleAddFeedback}></lightning-button>
+  </lightning-layout-item>
+
+</template>

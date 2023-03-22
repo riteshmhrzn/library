@@ -29,12 +29,6 @@
         <locationX>176</locationX>
         <locationY>335</locationY>
         <inputAssignments>
-            <field>Borrowed_ID__c</field>
-            <value>
-                <elementReference>$Record.Name</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>Fine__c</field>
             <value>
                 <elementReference>$Record.Bill_Ammount_B__c</elementReference>
@@ -44,6 +38,12 @@
             <field>Name</field>
             <value>
                 <elementReference>$User.FirstName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Related_Borrower_Id__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
             </value>
         </inputAssignments>
         <object>Bill__c</object>

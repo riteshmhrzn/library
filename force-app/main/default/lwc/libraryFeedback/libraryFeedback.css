@@ -1,9 +1,9 @@
 .slds-modal__container{   
     width: 350px; 
-    height: 430px;
+    height: 500px;
     border: 2px solid black;
     background-color:#f8f8f8;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-right: 35%;
     padding: 10px;
     color: rgb(10, 10, 10);

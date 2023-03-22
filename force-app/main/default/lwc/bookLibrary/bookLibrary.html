@@ -1,19 +1,26 @@
 <template>
-  <div class="slds-p-bottom_medium">
-  <lightning-button label="Borrower List" variant="brand" onclick={navigateToBorrowerPage}
-    class="slds-m-left_x-small"></lightning-button></div>
+  <div class="slds-p-bottom_xx-small">
+  <div class="slds-size_1-of-3">
+            <c-library-feedback></c-library-feedback>
+         
+            <div class="slds-p-left_xxx-small">
+            <lightning-button label="Borrower List" variant="brand" onclick={navigateToBorrowerPage}
+              class="slds-m-left_x-small"></lightning-button></div>
+              </div>
+            </div>
   <lightning-card title="Books" class="book-libary">
     <div class="slds-card__body slds-card__body_inner">
       <!-- Start book list -->
       <div class="slds-grid slds-gutters">
         <div class="slds-col slds-size_2-of-3">
-
           <!-- Code for book search by book name-->
           <template if:true={visiblebooks}>
-            <div class="slds-size_1-of-2">
+            <div class="slds-grid slds-gutters">
+            <div class="slds-size_2-of-3">
               <lightning-input type="search" onchange={handleSearchTermChange} variant="label-hidden"
                 class="slds-var-m-bottom_small" placeholder="Search for Books" value={searchTerm}>
               </lightning-input>
+            </div>
             </div>
             <lightning-layout multiple-rows="true" pull-to-boundary="small">
               <template for:each={visiblebooks} for:item="book">
@@ -33,12 +40,12 @@
                           <p class="slds-var-m-bottom_xx-small"><b>Availability:</b> {book.Avalibility__c}</p>
                           
                           <!-- Code to view book description on button click-->
-                          <div class="slds-p-bottom_small">
-                          <lightning-button label="Description" value={book.Id} onclick={viewbook}
+                          <div class="slds-p-bottom_xx-small">
+                          <lightning-button variant="brand-outline" label="Description" value={book.Id} onclick={viewbook}
                             class="slds-m-left_x-small"></lightning-button></div>
-                            
+                           
                           <lightning-button variant="success" label="Borrow Book" title="Pop Up Form" onclick={customShowModalPopup}
-                            value={book.Id} class="slds-m-left_x-small"></lightning-button>
+                            value={book.Id} class="slds-m-left_x-small"></lightning-button>           
                          
                           
 
@@ -52,6 +59,7 @@
                               <div class="slds-modal__container">
                                 <!-- modal header start -->
                                 <header class="slds-modal__header">
+                                  <h2 class="slds-text-heading_medium slds-hyphenate">Book Borrow Form</h2>
                                   <button
                                     class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
                                     title="Close" onclick={customHideModalPopup}>
@@ -59,7 +67,7 @@
                                       size="small"></lightning-icon>
                                     <span class="slds-assistive-text">Close</span>
                                   </button>
-                                  <h2 class="slds-text-heading_medium slds-hyphenate">Book Borrow Form</h2>
+                                  
                                 </header>
                                 <!-- modal body start -->
                                  
@@ -147,7 +155,7 @@
                               <p><b>BY: {book.Author__c} (Author)</b></p>
                             </div>
                             <div class="slds-media__body">
-                              <p class="slds-var-m-bottom_xx-small">{book.Description__c}</p>
+                              <p class="slds-var-m-bottom_xx-small" style="text-align: justify">{book.Description__c}</p>
                             </div>
                           </div>
                         </div>
