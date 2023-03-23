@@ -1,4 +1,4 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 import {ShowToastEvent} from 'lightning/platformShowToastEvent';
 import Book_OBJECT from '@salesforce/schema/Book__c';
 import BOOKNAME_FIELD from '@salesforce/schema/Book__c.Name';
@@ -9,6 +9,7 @@ import DESCRIPTION_FIELD from '@salesforce/schema/Book__c.Description__c';
 import createAccount from '@salesforce/apex/CreateBook.addBook';
 
 export default class CreateAccountRecord extends LightningElement {
+    
     objectApiName=Book_OBJECT;
     fields = [BOOKNAME_FIELD,AUTHOR_FIELD,QUANTITY_FIELD,IMAGEURL_FIELD,DESCRIPTION_FIELD];
     add= false;

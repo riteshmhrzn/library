@@ -1,13 +1,12 @@
 <template>
+   <!-- button for feedback form and link to borrower page -->
   <div class="slds-p-bottom_xx-small">
-  <div class="slds-size_1-of-3">
-            <c-library-feedback></c-library-feedback>
-         
-            <div class="slds-p-left_xxx-small">
-            <lightning-button label="Borrower List" variant="brand" onclick={navigateToBorrowerPage}
-              class="slds-m-left_x-small"></lightning-button></div>
-              </div>
-            </div>
+    <div class="slds-size_1-of-3">
+      <c-library-feedback></c-library-feedback>
+      <lightning-button label="Borrower List" variant="brand" onclick={navigateToBorrowerPage}
+        class="slds-m-left_x-small"></lightning-button>
+    </div>
+  </div>
   <lightning-card title="Books" class="book-libary">
     <div class="slds-card__body slds-card__body_inner">
       <!-- Start book list -->
@@ -16,11 +15,11 @@
           <!-- Code for book search by book name-->
           <template if:true={visiblebooks}>
             <div class="slds-grid slds-gutters">
-            <div class="slds-size_2-of-3">
-              <lightning-input type="search" onchange={handleSearchTermChange} variant="label-hidden"
-                class="slds-var-m-bottom_small" placeholder="Search for Books" value={searchTerm}>
-              </lightning-input>
-            </div>
+              <div class="slds-size_2-of-3">
+                <lightning-input type="search" onchange={handleSearchTermChange} variant="label-hidden"
+                  class="slds-var-m-bottom_small" placeholder="Search for Books" value={searchTerm}>
+                </lightning-input>
+              </div>
             </div>
             <lightning-layout multiple-rows="true" pull-to-boundary="small">
               <template for:each={visiblebooks} for:item="book">
@@ -28,32 +27,35 @@
                   <!-- stating book tile-->
                   <lightning-card title={book.Name} class="books-tile" value={book.Name}
                     onchange={handlebooknamechange}>
-                    <div class="slds-var-p-horizontal_small bear-tile-body">
+                    <div class="slds-var-p-horizontal_small book-tile-body">
                       <div class="slds-media">
                         <div class="slds-media__figure">
                           <img src={book.Image_URL__c} alt="book profile" class="book" width="100" height="100" />
+
                         </div>
                         <div class="slds-media__body">
                           <p class="slds-var-m-bottom_xx-small"><b>Book Id: </b>{book.Book_Id__c}</p>
                           <p class="slds-var-m-bottom_xx-small"><b>Book Name:</b> {book.Name}</p>
                           <p class="slds-var-m-bottom_xx-small"><b>Author:</b> {book.Author__c}</p>
                           <p class="slds-var-m-bottom_xx-small"><b>Availability:</b> {book.Avalibility__c}</p>
-                          
+
                           <!-- Code to view book description on button click-->
                           <div class="slds-p-bottom_xx-small">
-                          <lightning-button variant="brand-outline" label="Description" value={book.Id} onclick={viewbook}
-                            class="slds-m-left_x-small"></lightning-button></div>
-                           
-                          <lightning-button variant="success" label="Borrow Book" title="Pop Up Form" onclick={customShowModalPopup}
-                            value={book.Id} class="slds-m-left_x-small"></lightning-button>           
-                         
-                          
+                            <lightning-button variant="brand-outline" label="Description" value={book.Id}
+                              onclick={viewbook} class="slds-m-left_x-small"></lightning-button>
+                          </div>
 
-                          <!--popup modal start -->
-                          <template if:true={customFormModal}>
-                            <template if:true={Borrowbook.data}>
-                              <template for:each={Borrowbook.data} for:item="bk">
-                                <lightning-layout-item key={bk.Id} size="5" class="slds-var-p-around_x-small">
+                          <lightning-button variant="success" label="Borrow Book" title="Pop Up Form"
+                            onclick={customShowModalPopup} value={book.Id}
+                            class="slds-m-left_x-small"></lightning-button>
+                        </div>
+                      </div>
+                    </div>
+                    <!--popup modal start -->
+                    <template if:true={customFormModal}>
+                      <template if:true={Borrowbook.data}>
+                        <template for:each={Borrowbook.data} for:item="bk">
+                          <lightning-layout-item key={bk.Id} size="5" class="slds-var-p-around_x-small">
                             <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
                               aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
                               <div class="slds-modal__container">
@@ -67,60 +69,57 @@
                                       size="small"></lightning-icon>
                                     <span class="slds-assistive-text">Close</span>
                                   </button>
-                                  
+
                                 </header>
                                 <!-- modal body start -->
-                                 
+
                                 <div class="slds-modal__content slds-p-around_medium">
-                                  
+
                                   <div class="slds-grid slds-wrap">
                                     <div
                                       class="slds-col slds-size_1-of-3 slds-p-horizontal--medium slds-m-bottom_medium">
-                                    <div class="slds-media__figure">
-                                      <img src={bk.Image_URL__c} alt="book profile" class="book" width="200" height="200" />
+                                      <div class="slds-media__figure">
+                                        <img src={bk.Image_URL__c} alt="book profile" class="book" width="200"
+                                          height="200" />
+                                      </div>
                                     </div>
-                                  </div>
                                     <div
                                       class="slds-col slds-size_2-of-3 slds-p-horizontal--medium slds-m-bottom_medium">
-                                    
-                                      <lightning-input label="Book Name" name="bookname" value={bk.Name}
-                                        readonly="true" onchange={handleNameChange}></lightning-input>
-                                    
+
+                                      <lightning-input label="Book Name" name="bookname" value={bk.Name} readonly="true"
+                                        onchange={handleNameChange}></lightning-input>
+
                                       <lightning-input label="Book Author" name="bookauthor" value={bk.Author__c}
-                                        readonly="true" ></lightning-input>
-                                    
+                                        readonly="true"></lightning-input>
+
                                       <lightning-input label="Date Of Issue" type="date" name="myDate"
                                         value={dateofissue} onchange={handleDOIChange}>
                                       </lightning-input>
-                                    
+
                                       <lightning-input label="Status" name="status" value={status} readonly="true">
                                       </lightning-input>
-                                      </div>
                                     </div>
                                   </div>
-                                  
-                                  <!-- modal footer start-->
-                                  <footer class="slds-modal__footer">
-                                    <div class="slds-align_absolute-center" style="height:1rem">
-                                      <button class="slds-button slds-button--destructive"
-                                        onclick={customHideModalPopup}>Cancel</button>
-                                      <button class="slds-button slds-button_brand"
-                                        onclick={handleClick}>Borrow</button>
-                                    </div>
-                                  </footer>
                                 </div>
+
+                                <!-- modal footer start-->
+                                <footer class="slds-modal__footer">
+                                  <div class="slds-align_absolute-center" style="height:1rem">
+                                    <button class="slds-button slds-button--destructive"
+                                      onclick={customHideModalPopup}>Cancel</button>
+                                    <button class="slds-button slds-button_brand" onclick={handleClick}>Borrow</button>
+                                  </div>
+                                </footer>
                               </div>
+
                             </section>
-                            </lightning-layout-item>
-                            </template>
-                            </template>
-                            <div class="slds-backdrop slds-backdrop_open">
-                            </div>
-                          </template>
-                          <!-- modal end -->
-                        </div>
-                      </div>
-                    </div>
+                          </lightning-layout-item>
+                        </template>
+                      </template>
+                      <div class="slds-backdrop slds-backdrop_open"></div>
+                    </template>
+                    <!-- modal end -->
+
                   </lightning-card>
                 </lightning-layout-item>
               </template>
@@ -155,7 +154,8 @@
                               <p><b>BY: {book.Author__c} (Author)</b></p>
                             </div>
                             <div class="slds-media__body">
-                              <p class="slds-var-m-bottom_xx-small" style="text-align: justify">{book.Description__c}</p>
+                              <p class="slds-var-m-bottom_xx-small" style="text-align: justify">{book.Description__c}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -171,9 +171,6 @@
           </div>
         </div>
       </div>
-
-
-
     </div>
   </lightning-card>
 </template>
