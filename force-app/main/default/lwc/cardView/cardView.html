@@ -1,0 +1,68 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-5">
+            <!-- First Lightning Card -->
+            <lightning-card title="Faculty Member">
+                <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                        <div class="slds-text-heading_large">
+                            <lightning-icon icon-name="standard:education" size="medium"></lightning-icon>
+                             <b>{totalFacultyMember}</b>
+                        </div>
+                    </div>
+                </div>
+            </lightning-card>
+        </div>
+        <div class="slds-col slds-size_1-of-5">
+            <!-- Second Lightning Card -->
+            <lightning-card title="Total Students">
+                <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                        <div class="slds-text-heading_large">
+                            <lightning-icon icon-name="standard:user" size="medium"></lightning-icon>
+                             <b>{totalStudent}</b></div>
+                    </div>
+                </div>
+            </lightning-card>
+        </div>
+        <div class="slds-col slds-size_1-of-5">
+            <!-- Third Lightning Card -->
+            <lightning-card title="Total Available Books">
+                <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                        <div class="slds-text-heading_large">
+                            <lightning-icon icon-name="standard:knowledge" size="medium"></lightning-icon><b>{totalBooks}</b></div>
+                    </div>
+                </div>
+            </lightning-card>
+            
+            
+        </div>
+        <div class="slds-col slds-size_1-of-5">
+            <!-- Third Lightning Card -->
+            <lightning-card title="Total Books Issued">
+                <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                        <div class="slds-text-heading_large">
+                            <lightning-icon icon-name="standard:knowledge" size="medium"></lightning-icon><b>{totalBooksIssued}</b></div>
+                    </div>
+                </div>
+            </lightning-card>
+            
+            
+        </div>
+        <div class="slds-col slds-size_1-of-5">
+            <!-- Third Lightning Card -->
+            <lightning-card title="Add books">
+                <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                        <div class="slds-text-body_regular">
+                            <lightning-icon icon-name="utility:add" size="small"></lightning-icon><c-add-books></c-add-books></div>
+                    </div>
+                </div>
+            </lightning-card>
+            
+            
+        </div>
+    </div>
+</template>
